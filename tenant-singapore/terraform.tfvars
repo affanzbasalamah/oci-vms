@@ -1,21 +1,18 @@
-# ── Singapore Tenant (DEFAULT profile) ──────────────────────────────────────
-# Fill in values from:
-#   oci iam compartment list --profile DEFAULT --all
-#   oci iam availability-domain list --profile DEFAULT
-#   oci compute image list --profile DEFAULT --compartment-id <tenancy-ocid> \
-#     --operating-system "Canonical Ubuntu" --operating-system-version "24.04" \
-#     --shape "VM.Standard.E2.1.Micro" --query "data[0].id" --raw-output
-#   oci compute image list --profile DEFAULT --compartment-id <tenancy-ocid> \
-#     --operating-system "Canonical Ubuntu" --operating-system-version "24.04" \
-#     --shape "VM.Standard.A1.Flex" --query "data[0].id" --raw-output
+# ── Singapore Tenant (oci-sg-affan profile) ───────────────────────────────────
 
-compartment_ocid    = "ocid1.tenancy.oc1..REPLACE_ME"
-availability_domain = "REPLACE_ME:AP-SINGAPORE-1-AD-1"
+compartment_ocid    = "ocid1.tenancy.oc1..aaaaaaaaoehiyx6xmks7elybsawxc7kvkqtwksofs24qfqzhmbqnhuz6jm5q"
+availability_domain = "HUZb:AP-SINGAPORE-1-AD-1"
 ssh_public_key_path = "~/.ssh/id_rsa.pub"
 
-ubuntu2404_x86_image_id = "ocid1.image.oc1.ap-singapore-1.REPLACE_ME_X86"
-ubuntu2404_arm_image_id = "ocid1.image.oc1.ap-singapore-1.REPLACE_ME_ARM"
+# Ubuntu 24.04 x86_64 — Canonical-Ubuntu-24.04-2026.02.28-0
+ubuntu2404_x86_image_id = "ocid1.image.oc1.ap-singapore-1.aaaaaaaau6s26vibk7dykvfupb5djtxp2736hhk4qhy6y35ncq4l5otfak4q"
 
-# Ampere A1 free-tier allocation (max 4 OCPU + 24 GB across all A1 instances in tenancy)
+# Ubuntu 24.04 aarch64 — Canonical-Ubuntu-24.04-aarch64-2026.02.28-0 (latest)
+ubuntu2404_arm_image_id = "ocid1.image.oc1.ap-singapore-1.aaaaaaaa3rjnbq273x5kzisyx6os5r57735jnhytwkmwx7c5gm4ybkvzi2ua"
+
+# Ampere A1 — try 2 OCPU / 12 GB first (always-free quota: 4 OCPU / 24 GB total per tenancy)
+# If terraform apply fails with InsufficientServiceLimits/Out of capacity, change to:
+#   a1_ocpus         = 1
+#   a1_memory_in_gbs = 6
 a1_ocpus         = 2
 a1_memory_in_gbs = 12
