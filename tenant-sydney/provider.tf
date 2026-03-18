@@ -9,6 +9,6 @@ terraform {
 }
 
 provider "oci" {
-  config_file_profile = "AU-sydney"
+  config_file_profile = "oci-au-affan"
   region              = "ap-sydney-1"
 }

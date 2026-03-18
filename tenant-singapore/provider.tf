@@ -9,6 +9,6 @@ terraform {
 }
 
 provider "oci" {
-  config_file_profile = "DEFAULT"
+  config_file_profile = "oci-sg-affan"
   region              = "ap-singapore-1"
 }

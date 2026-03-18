@@ -9,6 +9,6 @@ terraform {
 }
 
 provider "oci" {
-  config_file_profile = "JP-tokyo"
+  config_file_profile = "oci-jp-affan"
   region              = "ap-tokyo-1"
 }
