@@ -1,3 +1,12 @@
+terraform {
+  required_providers {
+    oci = {
+      source  = "oracle/oci"
+      version = "~> 6.0"
+    }
+  }
+}
+
 # ── VCN ─────────────────────────────────────────────────────────────────────
 
 resource "oci_core_vcn" "this" {

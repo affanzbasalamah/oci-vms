@@ -9,6 +9,7 @@ terraform {
 }
 
 provider "oci" {
+  auth                = "SecurityToken"
   config_file_profile = "oci-jp-affan"
   region              = "ap-tokyo-1"
 }
