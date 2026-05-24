@@ -71,6 +71,32 @@ resource "oci_core_security_list" "this" {
       code = 4
     }
   }
+
+  # Extra TCP ports (e.g. WireGuard, custom services)
+  dynamic "ingress_security_rules" {
+    for_each = var.extra_tcp_ports
+    content {
+      protocol = "6"
+      source   = "0.0.0.0/0"
+      tcp_options {
+        min = ingress_security_rules.value
+        max = ingress_security_rules.value
+      }
+    }
+  }
+
+  # Extra UDP ports (e.g. WireGuard, custom services)
+  dynamic "ingress_security_rules" {
+    for_each = var.extra_udp_ports
+    content {
+      protocol = "17"
+      source   = "0.0.0.0/0"
+      udp_options {
+        min = ingress_security_rules.value
+        max = ingress_security_rules.value
+      }
+    }
+  }
 }
 
 # ── Public Subnet ─────────────────────────────────────────────────────────────

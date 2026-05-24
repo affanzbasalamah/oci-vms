@@ -72,3 +72,17 @@ variable "label_prefix" {
   type        = string
   default     = "oci"
 }
+
+# ── Extra ingress ports ──────────────────────────────────────────────────────
+
+variable "extra_tcp_ports" {
+  description = "Additional TCP ports to open inbound from 0.0.0.0/0"
+  type        = list(number)
+  default     = []
+}
+
+variable "extra_udp_ports" {
+  description = "Additional UDP ports to open inbound from 0.0.0.0/0"
+  type        = list(number)
+  default     = []
+}
