@@ -15,4 +15,8 @@ module "vm" {
   ubuntu2404_arm_image_id = var.ubuntu2404_arm_image_id
   a1_ocpus                = var.a1_ocpus
   a1_memory_in_gbs        = var.a1_memory_in_gbs
+
+  extra_tcp_ports     = var.extra_tcp_ports
+  extra_udp_ports     = var.extra_udp_ports
+  extra_proto_numbers = var.extra_proto_numbers
 }

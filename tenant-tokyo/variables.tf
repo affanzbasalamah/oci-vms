@@ -33,3 +33,21 @@ variable "a1_memory_in_gbs" {
   type    = number
   default = 12
 }
+
+variable "extra_tcp_ports" {
+  description = "Additional TCP ports to open inbound from 0.0.0.0/0"
+  type        = list(number)
+  default     = []
+}
+
+variable "extra_udp_ports" {
+  description = "Additional UDP ports to open inbound from 0.0.0.0/0"
+  type        = list(number)
+  default     = []
+}
+
+variable "extra_proto_numbers" {
+  description = "Additional IP protocol numbers to allow inbound (e.g. 50 for ESP)"
+  type        = list(number)
+  default     = []
+}
