@@ -97,6 +97,15 @@ resource "oci_core_security_list" "this" {
       }
     }
   }
+
+  # Extra IP protocols (e.g. 50 = ESP, 51 = AH for IPsec)
+  dynamic "ingress_security_rules" {
+    for_each = var.extra_proto_numbers
+    content {
+      protocol = tostring(ingress_security_rules.value)
+      source   = "0.0.0.0/0"
+    }
+  }
 }
 
 # ── Public Subnet ─────────────────────────────────────────────────────────────

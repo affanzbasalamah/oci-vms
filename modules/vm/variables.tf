@@ -86,3 +86,9 @@ variable "extra_udp_ports" {
   type        = list(number)
   default     = []
 }
+
+variable "extra_proto_numbers" {
+  description = "Additional IP protocol numbers to allow inbound (e.g. 50 for ESP, 51 for AH)"
+  type        = list(number)
+  default     = []
+}

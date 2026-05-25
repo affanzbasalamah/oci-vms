@@ -16,3 +16,7 @@ ubuntu2404_arm_image_id = "ocid1.image.oc1.ap-singapore-1.aaaaaaaa3rjnbq273x5kzi
 #   a1_memory_in_gbs = 6
 a1_ocpus         = 2
 a1_memory_in_gbs = 12
+
+# IPsec VPN ports (strongSwan / IKEv2)
+extra_udp_ports     = [500, 4500]
+extra_proto_numbers = [50]          # ESP
